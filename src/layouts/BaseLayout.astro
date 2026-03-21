@@ -1,4 +1,5 @@
 ---
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import '../styles/global.css'; // Asegúrate de que esta ruta coincida con la que Astro generó para Tailwind
 
 interface Props {
@@ -25,5 +26,6 @@ const { title, description = "Zenith POS - El Sistema de Punto de Venta Definiti
 	</head>
 	<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
 		<slot />
+		<WhatsAppButton />
 	</body>
 </html>

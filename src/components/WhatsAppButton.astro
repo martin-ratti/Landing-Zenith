@@ -1,0 +1,31 @@
+---
+import { MessageCircle } from 'lucide-astro';
+---
+<a 
+  href="https://wa.me/5493464441120?text=Hola%20Martin,%20estoy%20interesado%20en%20Zenith%20POS%20o%20desarrollo%20a%20medida." 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1DA851] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group flex items-center justify-center animate-bounce-slow"
+  aria-label="Contactar por WhatsApp"
+>
+  <MessageCircle class="w-8 h-8 fill-current" />
+  
+  <!-- Ping effect -->
+  <span class="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping z-[-1]"></span>
+</a>
+
+<style>
+  @keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(-5%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+  }
+  .animate-bounce-slow {
+      animation: bounce-slow 3s infinite;
+  }
+</style>

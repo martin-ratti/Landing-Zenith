@@ -3,7 +3,7 @@ import { Check, X } from 'lucide-astro';
 ---
 <section id="inversion" class="py-24 bg-z-light relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 reveal-up">
             <h2 class="text-3xl font-extrabold text-z-dark sm:text-4xl text-balance">El fin de las cuotas mensuales</h2>
             <p class="mt-4 text-lg text-z-blue-dark max-w-2xl mx-auto">Invierte una vez, úsalo para siempre. Diseñado para negocios que quieren maximizar su rentabilidad sin depender de alquileres de software.</p>
         </div>
@@ -11,7 +11,7 @@ import { Check, X } from 'lucide-astro';
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
             <!-- Competitors Card (Loss Aversion & Contrast Effect) -->
-            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm opacity-90 relative overflow-hidden flex flex-col">
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm opacity-90 relative overflow-hidden flex flex-col h-full reveal-up delay-100 hover:shadow-md transition-all duration-300 hover:-translate-y-2">
                 <div class="absolute top-0 left-0 w-full h-1 bg-slate-300"></div>
                 <h3 class="text-xl font-bold text-slate-500 mb-2">Sistemas Web (Comunes)</h3>
                 <div class="text-3xl font-bold text-slate-800 mb-6">$80+ <span class="text-base font-medium text-slate-500">/ mes</span></div>
@@ -37,7 +37,7 @@ import { Check, X } from 'lucide-astro';
             </div>
 
             <!-- Zenith Card (Anchor & Value) -->
-            <div class="bg-z-dark rounded-2xl p-8 border border-z-gold/30 shadow-2xl relative overflow-hidden transform lg:-translate-y-4 flex flex-col z-10">
+            <div class="bg-z-dark rounded-2xl p-8 border border-z-gold/30 shadow-2xl relative overflow-hidden flex flex-col h-full z-10 reveal-up delay-200 hover:shadow-z-blue/20 transition-all duration-300 hover:-translate-y-2">
                 <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-64 h-64 bg-z-gold/20 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="inline-flex items-center px-3 py-1 rounded-full bg-z-blue text-white text-xs font-bold uppercase tracking-wider w-max mb-4">
                     Licencia Vitalicia

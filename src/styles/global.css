@@ -7,3 +7,31 @@
   --color-z-gold: #BF793B;
   --color-z-light: #F2F2F2;
 }
+
+@layer utilities {
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-fade-in-up.delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .animate-fade-in-up.delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .animate-fade-in-up.delay-3 { animation-delay: 0.3s; opacity: 0; }
+}

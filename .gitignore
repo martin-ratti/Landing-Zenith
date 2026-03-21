@@ -1,0 +1,15 @@
+﻿# Dependencias
+node_modules/
+
+# Build outputs
+dist/
+.astro/
+
+# Entorno local
+.env
+.env.*
+!.env.example
+
+# OS y logs
+.DS_Store
+npm-debug.log*

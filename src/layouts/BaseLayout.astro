@@ -1,0 +1,25 @@
+---
+import '../styles/global.css'; // Asegúrate de que esta ruta coincida con la que Astro generó para Tailwind
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Zenith POS - El Sistema de Punto de Venta Definitivo, rápido, seguro y compatible." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0f172a" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+		<slot />
+	</body>
+</html>

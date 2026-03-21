@@ -1,0 +1,35 @@
+---
+import { ShoppingCart, Package, Banknote, BarChart3, Users, Zap } from 'lucide-astro';
+
+const features = [
+    { title: "Ventas y Facturación", description: "Caja registradora rápida, soporte para lectores de códigos de barras e impresión ESC/POS nativa.", icon: ShoppingCart },
+    { title: "Control de Inventario", description: "Gestión de productos, categorías, marcas y alertas de stock mínimo en tiempo real.", icon: Package },
+    { title: "Gestión de Caja", description: "Apertura, cierres, registro de egresos y cálculo de reportes Z detallados.", icon: Banknote },
+    { title: "Reportes Analíticos", description: "Métricas de ventas, productos más vendidos y análisis histórico de caja.", icon: BarChart3 },
+    { title: "Clientes y Proveedores", description: "Control de cuentas corrientes, deudas, pagos y recepción de mercadería.", icon: Users },
+    { title: "Arquitectura Offline", description: "Base de datos local SQLite ultrarrápida. Tu negocio nunca se detiene si se cae internet.", icon: Zap }
+];
+---
+<section id="caracteristicas" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Módulos del Sistema</h2>
+            <p class="mt-4 text-lg text-slate-600">Todo lo que necesitas para operar tu negocio, integrado en un solo ecosistema.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map(feature => {
+                const Icon = feature.icon;
+                return (
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="mb-5 inline-flex p-4 rounded-lg bg-slate-100 text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            <Icon class="w-8 h-8" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                        <p class="text-slate-600 leading-relaxed">{feature.description}</p>
+                    </div>
+                );
+            })}
+        </div>
+    </div>
+</section>

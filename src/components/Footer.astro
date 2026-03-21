@@ -1,0 +1,32 @@
+---
+import { Mail, MessageCircle, Github } from 'lucide-astro';
+---
+<footer id="contacto" class="bg-slate-900 border-t border-slate-800 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">¿Listo para modernizar tu negocio?</h2>
+            <p class="text-slate-400 mb-10 max-w-2xl mx-auto text-lg">Contáctame para adquirir tu licencia de Zenith POS o solicitar integraciones a medida para tu empresa.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-8 mb-12 text-slate-300">
+                <a href="mailto:tu-correo@ejemplo.com" class="flex items-center gap-3 hover:text-blue-400 transition-colors group">
+                    <Mail class="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <span class="font-medium">tu-correo@ejemplo.com</span>
+                </a>
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-emerald-400 transition-colors group">
+                    <MessageCircle class="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <span class="font-medium">WhatsApp</span>
+                </a>
+                <a href="https://github.com/martin-ratti" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-white transition-colors group">
+                    <Github class="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <span class="font-medium">GitHub</span>
+                </a>
+            </div>
+            
+            <div class="pt-8 border-t border-slate-800">
+                <p class="text-slate-500 text-sm">
+                    &copy; {new Date().getFullYear()} Zenith POS Core. Desarrollado por Martin Ratti. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

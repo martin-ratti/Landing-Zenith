@@ -1,11 +1,37 @@
 @import "tailwindcss";
 
+:root {
+  /* Colors */
+  --color-primary: #143D73;
+  --color-primary-dark: #113059;
+  --color-secondary: #BF793B;
+  --color-dark: #010626;
+  --color-light: #F2F2F2;
+  --color-white: #FFFFFF;
+  
+  /* Backgrounds */
+  --bg-main: var(--color-light);
+  --bg-dark: var(--color-dark);
+  --bg-card: var(--color-white);
+  
+  /* Text */
+  --text-main: var(--color-dark);
+  --text-muted: var(--color-primary-dark);
+  --text-inverse: var(--color-white);
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+}
+
 @theme {
-  --color-z-dark: #010626;
-  --color-z-blue-dark: #113059;
-  --color-z-blue: #143D73;
-  --color-z-gold: #BF793B;
-  --color-z-light: #F2F2F2;
+  --color-z-dark: var(--color-dark);
+  --color-z-blue-dark: var(--color-primary-dark);
+  --color-z-blue: var(--color-primary);
+  --color-z-gold: var(--color-secondary);
+  --color-z-light: var(--color-light);
 }
 
 @layer utilities {

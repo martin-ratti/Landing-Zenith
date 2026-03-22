@@ -1,7 +1,7 @@
 ---
 const base = import.meta.env.BASE_URL;
 ---
-<nav class="bg-z-dark border-b border-z-blue-dark sticky top-0 z-50 transition-all duration-300">
+<nav class="bg-z-dark border-b border-z-blue-dark sticky top-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <div class="flex-shrink-0 flex items-center gap-3">
@@ -21,3 +21,30 @@ const base = import.meta.env.BASE_URL;
         </div>
     </div>
 </nav>
+
+<!-- Sticky CTA Bar -->
+<div id="sticky-cta" class="fixed top-0 left-0 w-full z-50 bg-z-blue shadow-lg border-b border-z-blue-dark transition-all duration-500 ease-in-out transform -translate-y-full opacity-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-white">
+        <span class="font-medium text-sm sm:text-base">Empieza a organizar tu negocio hoy</span>
+        <a href="#contacto" class="px-4 py-1.5 bg-white text-z-blue text-sm font-bold rounded hover:bg-z-light transition-colors shadow-sm">
+            Solicitar Demo
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const stickyCta = document.getElementById('sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    stickyCta.classList.remove('-translate-y-full', 'opacity-0');
+                    stickyCta.classList.add('translate-y-0', 'opacity-100');
+                } else {
+                    stickyCta.classList.add('-translate-y-full', 'opacity-0');
+                    stickyCta.classList.remove('translate-y-0', 'opacity-100');
+                }
+            });
+        }
+    });
+</script>

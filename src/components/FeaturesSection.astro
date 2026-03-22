@@ -1,13 +1,13 @@
 ---
-import { ShoppingCart, Package, Banknote, BarChart3, Users, Zap } from 'lucide-astro';
+import { ShoppingCart, Package, Banknote, BarChart3, Users, ShieldCheck } from 'lucide-astro';
 
 const features = [
-    { title: "Ventas y Facturación", description: "Caja registradora rápida, soporte para lectores de códigos de barras e impresión ESC/POS nativa.", icon: ShoppingCart },
+    { title: "Ventas y Control Interno", description: "Caja registradora rápida, soporte para lectores de códigos de barras e impresión de tickets. (Programa de gestión interna, no permite facturación fiscal).", icon: ShoppingCart },
     { title: "Control de Inventario", description: "Gestión de productos, categorías, marcas y alertas de stock mínimo en tiempo real.", icon: Package },
     { title: "Gestión de Caja", description: "Apertura, cierres, registro de egresos y cálculo de reportes Z detallados.", icon: Banknote },
-    { title: "Reportes Analíticos", description: "Métricas de ventas, productos más vendidos y análisis histórico de caja.", icon: BarChart3 },
-    { title: "Clientes y Proveedores", description: "Control de cuentas corrientes, deudas, pagos y recepción de mercadería.", icon: Users },
-    { title: "Arquitectura Offline", description: "Base de datos local SQLite ultrarrápida. Tu negocio nunca se detiene si se cae internet.", icon: Zap }
+    { title: "Seguridad y Empleados", description: "Control de seguridad por niveles de acceso, registro de actividad por vendedor y auditoría de transacciones para un control total.", icon: ShieldCheck },
+    { title: "KPIs y Analíticas", description: "Métricas clave de rendimiento (KPIs), productos más vendidos y análisis histórico para toma de decisiones.", icon: BarChart3 },
+    { title: "Clientes y Proveedores", description: "Control de cuentas corrientes, deudas, pagos y recepción de mercadería.", icon: Users }
 ];
 ---
 <section id="caracteristicas" class="py-20 bg-z-light">

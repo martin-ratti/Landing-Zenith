@@ -31,7 +31,7 @@ const features = [
                             <!-- GIF App (Aparece en hover) -->
                             <div class="absolute inset-0 flex items-center justify-center rounded-lg overflow-hidden transition-all duration-500 ease-out transform scale-105 opacity-0 group-hover:scale-100 group-hover:opacity-100 shadow-md z-20 bg-slate-100 border border-z-blue/20">
                                 <!-- Reemplaza por tu ruta real al GIF -->
-                                <img src="/images/demo-placeholder.gif" alt={`Demostración de ${feature.title}`} class="w-full h-full object-cover" loading="lazy" />
+                                <img src={`https://placehold.co/400x400/143D73/FFFFFF?text=${encodeURIComponent(feature.title)}`} alt={`Demostración de ${feature.title}`} class="w-full h-full object-cover" loading="lazy" />
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-z-dark mb-3 group-hover:text-z-blue transition-colors duration-500 relative z-30">{feature.title}</h3>

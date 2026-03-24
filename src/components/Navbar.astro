@@ -10,17 +10,41 @@ const base = import.meta.env.BASE_URL;
 
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-8">
-                    <a href="#inicio" class="text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
-                    <a href="#caracteristicas" class="text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Módulos</a>
-                    <a href="#galeria" class="text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Galería</a>
-                    <a href="#inversion" class="text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Inversión</a>
-                    <a href="#nosotros" class="text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Nosotros</a>
-                    <a href="#contacto" class="bg-z-blue hover:bg-z-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-z-blue/30">Contactar</a>
+                    <a href="#inicio" class="nav-link text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
+                    <a href="#galeria" class="nav-link text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Galería</a>
+                    <a href="#caracteristicas" class="nav-link text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Módulos</a>
+                    <a href="#nosotros" class="nav-link text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Nosotros</a>
+                    <a href="#inversion" class="nav-link text-z-light/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Inversión</a>
+                    <a href="#contacto" class="nav-link bg-z-blue hover:bg-z-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-z-blue/30">Contactar</a>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
+<style>
+    .nav-link.active {
+        color: var(--color-z-gold) !important;
+        position: relative;
+    }
+    
+    .nav-link.active:not(.bg-z-blue)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0.75rem;
+        right: 0.75rem;
+        height: 2px;
+        background-color: var(--color-z-gold);
+        border-radius: 2px;
+        animation: slideIn 0.3s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+        from { transform: scaleX(0); opacity: 0; }
+        to { transform: scaleX(1); opacity: 1; }
+    }
+</style>
 
 <!-- Sticky CTA Bar -->
 <div id="sticky-cta" class="fixed top-20 left-0 w-full z-40 bg-z-blue shadow-lg border-b border-z-blue-dark transition-all duration-500 ease-in-out transform -translate-y-full opacity-0">
@@ -35,8 +59,35 @@ const base = import.meta.env.BASE_URL;
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const stickyCta = document.getElementById('sticky-cta');
-        if (stickyCta) {
-            window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        const updateActiveLink = () => {
+            let current = '';
+            const scrollPosition = window.scrollY + 120; // Un poco más de margen
+
+            sections.forEach(section => {
+                const sectionTop = (section as any).offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id') || '';
+                }
+            });
+
+            // Fallback para el principio de la página
+            if (window.scrollY < 100) current = 'inicio';
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            // Lógica Sticky CTA
+            if (stickyCta) {
                 if (window.scrollY > 100) {
                     stickyCta.classList.remove('-translate-y-full', 'opacity-0');
                     stickyCta.classList.add('translate-y-0', 'opacity-100');
@@ -44,7 +95,13 @@ const base = import.meta.env.BASE_URL;
                     stickyCta.classList.add('-translate-y-full', 'opacity-0');
                     stickyCta.classList.remove('translate-y-0', 'opacity-100');
                 }
-            });
-        }
+            }
+            
+            // Lógica Scrollspy
+            updateActiveLink();
+        });
+
+        // Ejecutar una vez al cargar para resaltar la sección inicial
+        updateActiveLink();
     });
 </script>

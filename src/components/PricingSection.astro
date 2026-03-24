@@ -8,15 +8,18 @@ import { Check, X } from 'lucide-astro';
             <p class="mt-4 text-lg text-z-blue-dark max-w-2xl mx-auto">Invierte una vez, úsalo para siempre. Diseñado para negocios que quieren maximizar su rentabilidad sin depender de alquileres de software.</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto group/pricing">
             
             <!-- Competitors Card (Loss Aversion & Contrast Effect) -->
-            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm opacity-90 relative overflow-hidden flex flex-col h-full reveal-up delay-100 hover:shadow-md transition-all duration-300 hover:-translate-y-2">
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative overflow-hidden flex flex-col h-full reveal-up delay-100 transition-all duration-500 group-hover/pricing:opacity-50 group-hover/pricing:blur-xs group-hover/pricing:grayscale hover:opacity-100! hover:blur-none! hover:grayscale! hover:scale-105 hover:z-20 hover:shadow-xl">
                 <div class="absolute top-0 left-0 w-full h-1 bg-slate-300"></div>
                 <h3 class="text-xl font-bold text-slate-500 mb-2">Sistemas Web (Comunes)</h3>
-                <div class="text-3xl font-bold text-slate-800 mb-6">$80+ <span class="text-base font-medium text-slate-500">/ mes</span></div>
+                <div class="text-3xl font-bold text-slate-800 mb-2">$100+ <span class="text-base font-medium text-slate-500">/ mes</span></div>
+                <div class="inline-flex items-center px-2.5 py-1 rounded-md bg-red-50 text-red-600 text-xs font-bold mb-6 border border-red-100">
+                    <X class="w-3 h-3 mr-1" /> Gasto anual: $1,200+ irrecuperables
+                </div>
                 
-                <ul class="space-y-4 mb-8 flex-grow">
+                <ul class="space-y-4 mb-8 grow">
                     <li class="flex items-start text-slate-600">
                         <X class="w-5 h-5 text-red-500 mr-3 shrink-0 mt-0.5" />
                         <span>Pago eterno de cuotas mensuales.</span>
@@ -37,7 +40,7 @@ import { Check, X } from 'lucide-astro';
             </div>
 
             <!-- Zenith Card (Anchor & Value) -->
-            <div class="bg-z-dark rounded-2xl p-8 border border-z-gold/30 shadow-2xl relative overflow-hidden flex flex-col h-full z-10 reveal-up delay-200 hover:shadow-z-blue/20 transition-all duration-300 hover:-translate-y-2">
+            <div class="bg-z-dark rounded-2xl p-8 border border-z-gold/30 shadow-2xl relative overflow-hidden flex flex-col h-full z-10 reveal-up delay-200 transition-all duration-500 group-hover/pricing:opacity-50 group-hover/pricing:blur-xs group-hover/pricing:grayscale hover:opacity-100! hover:blur-none! hover:grayscale! hover:scale-105 hover:z-20 hover:shadow-z-blue/20">
                 <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-64 h-64 bg-z-gold/20 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="inline-flex items-center px-3 py-1 rounded-full bg-z-blue text-white text-xs font-bold uppercase tracking-wider w-max mb-4">
                     Licencia Vitalicia
@@ -46,14 +49,20 @@ import { Check, X } from 'lucide-astro';
                 <div class="text-4xl font-extrabold text-white mb-2">Pago Único</div>
                 <p class="text-z-gold mb-6 font-medium">El software es 100% tuyo, para siempre.</p>
                 
-                <ul class="space-y-4 mb-10 flex-grow">
+                <ul class="space-y-4 mb-10 grow">
                     <li class="flex items-start text-z-light/90">
                         <Check class="w-5 h-5 text-z-gold mr-3 shrink-0 mt-0.5" />
                         <span>Sin suscripciones, licenciamiento vitalicio.</span>
                     </li>
                     <li class="flex items-start text-z-light/90">
                         <Check class="w-5 h-5 text-z-gold mr-3 shrink-0 mt-0.5" />
-                        <span>Base de datos <strong class="text-white">SQLite local (offline-first)</strong>.</span>
+                        <span class="relative group/tooltip cursor-help decoration-z-gold/50 underline underline-offset-4 decoration-dotted">
+                            Base de datos <strong class="text-white">SQLite local (offline-first)</strong>
+                            <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-white text-z-dark text-xs rounded-lg shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover/tooltip:opacity-100 group-hover/tooltip:translate-y-0 transition-all z-50 border border-z-blue/10">
+                                Tu información no viaja por internet. Se guarda blindada en tu PC. Si se cae el WiFi, sigues vendiendo sin interrupciones.
+                                <span class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white"></span>
+                            </span>
+                        </span>
                     </li>
                     <li class="flex items-start text-z-light/90">
                         <Check class="w-5 h-5 text-z-gold mr-3 shrink-0 mt-0.5" />
@@ -69,9 +78,14 @@ import { Check, X } from 'lucide-astro';
                     </li>
                 </ul>
 
-                <a href="#contacto" class="block w-full text-center px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-z-blue to-z-blue-dark hover:from-z-blue-dark hover:to-z-dark border border-z-blue/50 shadow-lg shadow-z-blue/20 transition-all transform hover:-translate-y-1">
-                    Contactar para Cotización
+                <a href="#contacto" class="block w-full text-center px-8 py-4 rounded-xl font-bold text-white bg-linear-to-r from-z-blue to-z-blue-dark hover:from-z-blue-dark hover:to-z-dark border border-z-blue/50 shadow-lg shadow-z-blue/20 transition-all transform hover:-translate-y-1">
+                    Consultar Valor del Pago Único
                 </a>
+                
+                <div class="mt-4 flex items-center justify-center gap-2 text-z-light/40 text-[10px] uppercase tracking-widest font-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-z-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Garantía de soporte e instalación incluída
+                </div>
             </div>
             
         </div>

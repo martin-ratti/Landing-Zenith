@@ -1,31 +1,65 @@
 ---
-import { Mail, MessageCircle, Github } from 'lucide-astro';
+import { Mail, MessageCircle, Github, Check } from 'lucide-astro';
 ---
-<footer id="contacto" class="bg-z-dark border-t border-z-blue-dark py-16">
+<footer id="contacto" class="bg-z-dark border-t border-z-blue-dark py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">¿Listo para modernizar tu negocio?</h2>
-            <p class="text-z-light/80 mb-10 max-w-2xl mx-auto text-lg">Contáctame para adquirir tu licencia de Zenith POS o solicitar integraciones a medida para tu empresa. Sin pagos recurrentes, sin compromisos.</p>
+            <h2 class="text-3xl font-extrabold text-white mb-8 sm:text-4xl text-balance">¿Listo para modernizar tu negocio?</h2>
             
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-8 mb-12 text-z-light/70">
-                <a href="mailto:martinratti10@gmail.com" class="flex items-center gap-3 hover:text-z-gold transition-colors group">
-                    <Mail class="w-6 h-6 group-hover:scale-110 transition-transform" />
-                    <span class="font-medium">martinratti10@gmail.com</span>
+            <!-- Escudo Anti-Objeciones (Trust Checklist) -->
+            <div class="inline-block text-left mb-12">
+                <ul class="flex flex-col gap-5 max-w-lg mx-auto">
+                    <li class="flex items-start gap-4 text-z-light/90 text-lg sm:text-xl">
+                        <Check class="w-6 h-6 text-z-gold shrink-0 mt-1" />
+                        <span>Pagas <strong class="text-white">1 sola vez</strong>. El software es tuyo para siempre.</span>
+                    </li>
+                    <li class="flex items-start gap-4 text-z-light/90 text-lg sm:text-xl">
+                        <Check class="w-6 h-6 text-z-gold shrink-0 mt-1" />
+                        <span><strong class="text-white">Sin compromiso</strong>. Consultar no te obliga a comprar.</span>
+                    </li>
+                    <li class="flex items-start gap-4 text-z-light/90 text-lg sm:text-xl">
+                        <Check class="w-6 h-6 text-z-gold shrink-0 mt-1" />
+                        <span><strong class="text-white">Trato Humano</strong>. Hablas directo con el creador, sin intermediarios.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <!-- El Protagonista (WhatsApp Button) -->
+                <a 
+                    href="https://wa.me/5493464441120?text=Hola%20Martín,%20llegué%20al%20final%20de%20tu%20página%20web%20y%20estoy%20muy%20interesado%20en%20la%20licencia%20de%20pago%20único%20de%20Zenith%20POS.%20¿Me%20podrías%20pasar%20más%20info?" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-4 px-10 py-5 bg-[#25D366] hover:bg-[#128C7E] text-white text-xl font-bold rounded-2xl shadow-xl shadow-green-500/20 hover:shadow-green-500/40 transition-all transform hover:-translate-y-1 mb-6"
+                >
+                    <MessageCircle class="w-8 h-8 fill-current" />
+                    👉 Iniciar Chat por WhatsApp
                 </a>
-                <a href="https://wa.me/5493464441120" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-z-blue transition-colors group">
-                    <MessageCircle class="w-6 h-6 group-hover:scale-110 transition-transform" />
-                    <span class="font-medium">+54 9 3464 441120</span>
-                </a>
-                <a href="https://github.com/martin-ratti" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-white transition-colors group">
-                    <Github class="w-6 h-6 group-hover:scale-110 transition-transform" />
-                    <span class="font-medium">martin-ratti</span>
+
+                <!-- La Alternativa Formal (Email) -->
+                <a 
+                    href="mailto:martinratti10@gmail.com?subject=Consulta%20por%20Licencia%20Vitalicia%20de%20Zenith%20POS&body=Hola%20Martín,%0A%0AEstoy%20buscando%20un%20sistema%20para%20mi%20comercio%20y%20me%20interesó%20mucho%20que%20funcione%20sin%20internet%20y%20sea%20de%20pago%20único.%0A%0AMi%20negocio%20es%20de%20rubro%20[TU%20RUBRO%20AQUÍ].%0A%0A¿Podemos%20coordinar%20para%20ver%20cómo%20funciona?" 
+                    class="text-z-light/60 hover:text-white transition-colors inline-block px-6 py-2 rounded-lg border border-white/5 hover:border-white/20 text-sm mb-12"
+                >
+                    O si prefieres, envíame un correo electrónico
                 </a>
             </div>
             
-            <div class="pt-8 border-t border-z-blue-dark">
-                <p class="text-z-light/50 text-sm">
-                    &copy; {new Date().getFullYear()} Zenith POS Core. Desarrollado por Martin Ratti. Todos los derechos reservados.
+            <div class="pt-8 border-t border-z-blue-dark flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-z-light/50 text-sm font-medium tracking-wide">
+                    &copy; {new Date().getFullYear()} Zenith POS Core. Desarrollado con ❤️ por Martin Ratti.
                 </p>
+                
+                <!-- El Sótano Técnico (GitHub) -->
+                <a 
+                    href="https://github.com/martin-ratti" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="flex items-center gap-2 text-z-light/40 hover:text-white transition-colors text-sm"
+                >
+                    <Github class="w-4 h-4" />
+                    <span>Ver código en GitHub</span>
+                </a>
             </div>
         </div>
     </div>

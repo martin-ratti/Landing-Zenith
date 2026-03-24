@@ -1,34 +1,105 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
-<section id="inicio" class="relative bg-z-dark overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div class="text-center flex flex-col items-center">
-            <div class="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-z-gold/30 bg-z-gold/10 text-z-gold text-sm font-medium animate-fade-in-up">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-z-gold opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-z-gold"></span>
-                </span>
-                Arquitectura .NET - 100% Sin Internet
+<section id="inicio" class="relative bg-z-dark overflow-hidden min-h-[90vh] flex items-center">
+    <!-- Fondo decorativo optimizado -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-z-blue/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-z-gold/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-16">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Columna Izquierda: Mensaje y Acción -->
+            <div class="flex flex-col items-start text-left">
+                <!-- Sello de Licencia Vitalicia (Píldora) -->
+                <div class="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-z-gold/30 bg-z-gold/10 text-z-gold text-sm font-bold animate-fade-in-up uppercase tracking-wider">
+                    <span class="text-lg">⭐</span>
+                    <span>Licencia Vitalicia: Pagas 1 vez, lo usas para siempre</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight animate-fade-in-up delay-1">
+                    Tu Negocio Nunca se Detiene: 
+                    <span class="block text-transparent bg-clip-text bg-linear-to-r from-z-blue to-white pb-2">
+                        Punto de Venta Sin Internet y Sin Pagar Cuotas.
+                    </span>
+                </h1>
+
+                <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed animate-fade-in-up delay-2">
+                    Una arquitectura blindada para comercios reales. Dale nueva vida a la PC que ya tienes y evita las costosas suscripciones mensuales de los sistemas web.
+                </p>
+
+                <!-- Botones de Acción -->
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-in-up delay-3">
+                    <a href="https://wa.me/5491138923055" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-xl text-white bg-[#25D366] hover:bg-[#1da851] shadow-xl shadow-green-900/20 transition-all transform hover:-translate-y-1 hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.316 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.584 3.914 1.699 5.845l-.998 3.642 3.864-.986zm11.381-4.647c-.07-.117-.258-.187-.54-.327-.281-.14-1.666-.822-1.923-.916-.257-.094-.445-.14-.633.14-.187.281-.726.916-.889 1.103-.163.187-.327.21-.609.07-.282-.14-1.189-.439-2.266-1.399-.838-.748-1.404-1.671-1.568-1.953-.163-.281-.017-.433.123-.572.127-.125.281-.327.422-.49.14-.164.187-.281.281-.466.094-.187.047-.35-.023-.49-.07-.14-.633-1.519-.867-2.08-.228-.546-.46-.472-.633-.472-.163 0-.35-.024-.54-.024-.187 0-.491.07-.749.35-.257.281-.983.963-.983 2.348 0 1.385 1.006 2.719 1.147 2.905.14.187 1.981 3.024 4.8 4.232.671.288 1.194.46 1.603.59.674.214 1.287.184 1.772.112.54-.08 1.666-.68 1.9-.1.334-.233.164-.233.164.07-.124.605-.187.677-.281.14-.116.117-.234-.07z"/>
+                        </svg>
+                        Pedir Demo por WhatsApp
+                    </a>
+                    <a href="#caracteristicas" class="inline-flex items-center justify-center px-8 py-4 border border-slate-700 text-lg font-medium rounded-xl text-slate-300 bg-slate-800/50 hover:bg-slate-800 hover:text-white transition-all transform hover:-translate-y-1">
+                        Ver Módulos
+                    </a>
+                </div>
+
+                <!-- Trust Badges (Insignias de Confianza Técnica) -->
+                <div class="mt-12 w-full animate-fade-in-up delay-4">
+                    <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500 mb-4 ml-1">Compatible de forma nativa con:</p>
+                    <div class="flex flex-wrap items-center gap-6 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                        <!-- Windows XP/7/11 Icons -->
+                        <div class="flex items-center gap-2 group cursor-help" title="Windows XP / 7 / 10 / 11">
+                            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current text-white"><path d="M0 3.449L9.75 2.1l.01 9.15-9.76.035v-7.836zm9.75 8.61L9.76 21.9 0 20.562V12.06h9.75zm1.35-10.11l12.9-1.839v11.838h-12.9V1.949zm12.9 11.261l-.01 10.65-12.89-1.848v-8.802h12.9z"/></svg>
+                            <span class="text-xs font-bold text-white/70">Windows XP-11</span>
+                        </div>
+                        
+                        <!-- SQLite -->
+                        <div class="flex items-center gap-2 group cursor-help" title="Base de Datos Local Ultra-rápida">
+                            <svg class="w-5 h-5 fill-current text-sky-400" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V7h2v10z"/></svg>
+                            <span class="text-xs font-bold text-sky-400/70">SQLite Engine</span>
+                        </div>
+
+                        <!-- Barcode -->
+                        <div class="flex items-center gap-2 group cursor-help" title="Soporta cualquier Lector de Barras">
+                            <svg class="w-6 h-6 stroke-current text-white" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v14M6 5v14M10 5v14M13 5v14M17 5v14M21 5v14M3 5h2M3 19h2M21 5h-2M21 19h-2"/></svg>
+                            <span class="text-xs font-bold text-white/70">Lector Barras</span>
+                        </div>
+
+                        <!-- Thermal Printer -->
+                        <div class="flex items-center gap-2 group cursor-help" title="Impresoras Térmicas Genéricas y de Marca">
+                            <svg class="w-6 h-6 stroke-current text-white" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                            <span class="text-xs font-bold text-white/70">Tiketeras 58/80mm</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl max-w-4xl animate-fade-in-up delay-1">
-                <span class="block">El Sistema de Punto de Venta con</span>
-                <span class="block text-transparent bg-clip-text bg-linear-to-r from-z-blue to-z-gold pb-2">Compatibilidad Extrema</span>
-            </h1>
-            <p class="mt-4 max-w-3xl mx-auto text-base text-slate-400 sm:text-lg md:text-xl animate-fade-in-up delay-2">
-                Evita caídas de sistema y costosas suscripciones. Una arquitectura robusta diseñada para operar a prueba de fallos desde Windows XP hasta Windows 11.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto animate-fade-in-up delay-3">
-                <a href="#contacto" class="px-8 py-4 border border-transparent text-lg font-bold rounded-lg text-white bg-z-blue hover:bg-z-blue-dark shadow-xl shadow-z-blue/20 transition-all transform hover:-translate-y-1">
-                    Solicitar Demo Gratuita
-                </a>
-                <a href="#caracteristicas" class="px-8 py-4 border border-z-blue-dark text-lg font-medium rounded-lg text-z-light/80 bg-z-blue-dark/40 hover:bg-z-blue-dark hover:text-white transition-all transform hover:-translate-y-1">
-                    Ver Módulos
-                </a>
+
+            <div class="relative animate-fade-in-up delay-3 lg:block">
+                <div class="relative w-full aspect-4/3 rounded-2xl overflow-hidden shadow-2xl shadow-z-blue-dark/30 bg-z-dark border border-white/10 group">
+                    <img 
+                        src={`${base}/mockuppos.png`} 
+                        alt="Zenith POS: Evolución Tecnológica. Compatible con equipos clásicos y modernos." 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        fetchpriority="high"
+                        loading="eager"
+                    />
+                    <!-- Gradiente suave decorativo -->
+                    <div class="absolute inset-0 bg-linear-to-t from-z-dark/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+                
+                <!-- Elemento flotante decorativo -->
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-z-gold/20 blur-3xl rounded-full"></div>
             </div>
-            <p class="mt-5 text-sm text-z-light/50 font-medium animate-fade-in-up delay-4">Pago único. La licencia es tuya de por vida.</p>
+
         </div>
     </div>
-    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full overflow-hidden leading-none z-[-1] opacity-20">
-        <div class="bg-linear-to-b from-z-blue-dark to-transparent h-96 w-full blur-3xl"></div>
-    </div>
 </section>
+
+<style>
+    /* Ajustes específicos para las animaciones si no están en global.css */
+    .delay-1 { animation-delay: 100ms; }
+    .delay-2 { animation-delay: 200ms; }
+    .delay-3 { animation-delay: 300ms; }
+    .delay-4 { animation-delay: 400ms; }
+</style>

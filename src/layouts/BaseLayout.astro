@@ -8,6 +8,9 @@ interface Props {
 }
 
 const { title, description = "Zenith POS - El Sistema de Punto de Venta Definitivo, rápido, seguro y compatible." } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const faviconPath = `${base}/favicon.png`.replace(/\/+/g, '/');
+const preloadImagePath = `${base}/mockuppos.png`.replace(/\/+/g, '/');
 ---
 
 <!DOCTYPE html>
@@ -21,10 +24,10 @@ const { title, description = "Zenith POS - El Sistema de Punto de Venta Definiti
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta name="theme-color" content="#0f172a" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href={faviconPath} />
 		
 		<!-- Preload LCP Image -->
-		<link rel="preload" as="image" href="/mockuppos.png" fetchpriority="high" />
+		<link rel="preload" as="image" href={preloadImagePath} fetchpriority="high" />
 
 		<title>{title}</title>
 	</head>

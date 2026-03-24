@@ -84,7 +84,7 @@ const base = import.meta.env.BASE_URL;
 </style>
 
 <!-- Sticky CTA Bar -->
-<div id="sticky-cta" class="fixed top-20 left-0 w-full z-40 bg-z-blue shadow-lg border-b border-z-blue-dark transition-all duration-500 ease-in-out transform -translate-y-full opacity-0 overflow-hidden">
+<div id="sticky-cta" class="fixed left-0 w-full z-40 bg-z-blue shadow-lg border-b border-z-blue-dark transition-all duration-500 ease-in-out transform -translate-y-full opacity-0 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between text-white gap-2">
         <span class="font-bold text-[10px] xs:text-xs sm:text-base leading-tight">Libérate de las suscripciones mensuales</span>
         <a href="https://wa.me/5493464441120?text=Hola%20Martín,%20vengo%20del%20botón%20superior%20de%20la%20página.%20Me%20interesa%20consultar%20por%20la%20licencia%20de%20pago%20único." 
@@ -180,6 +180,9 @@ const base = import.meta.env.BASE_URL;
 
             // Lógica Sticky CTA
             if (stickyCta) {
+                const navHeight = navContainer?.offsetHeight || 80;
+                stickyCta.style.top = `${navHeight}px`;
+
                 if (window.scrollY > 100) {
                     stickyCta.classList.remove('-translate-y-full', 'opacity-0');
                     stickyCta.classList.add('translate-y-0', 'opacity-100');

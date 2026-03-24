@@ -11,7 +11,7 @@ const { title, description = "Zenith POS - El Sistema de Punto de Venta Definiti
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth scroll-pt-24">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,6 +44,24 @@ const { title, description = "Zenith POS - El Sistema de Punto de Venta Definiti
 				}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 				document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+				// Prevenir colisión de CTAs (Botón WhatsApp vs Footer)
+				const whatsappBtn = document.getElementById('whatsapp-floating');
+				const footer = document.getElementById('contacto');
+
+				if (whatsappBtn && footer) {
+					const footerObserver = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								whatsappBtn.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+							} else {
+								whatsappBtn.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+							}
+						});
+					}, { threshold: 0.1 });
+
+					footerObserver.observe(footer);
+				}
 			});
 		</script>
 	</body>

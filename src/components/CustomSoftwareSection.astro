@@ -65,12 +65,11 @@ import { Code, Monitor, Rocket, Coffee, Brush, Zap } from 'lucide-astro';
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/5493464441120?text=Hola,%20me%20gustaría%20completar%20la%20solicitud%20para%20un%20proyecto%20de%20software%20a%20medida." 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-z-dark bg-z-gold hover:bg-white border border-transparent hover:border-z-gold transition-all transform hover:-translate-y-1 shadow-xl shadow-z-gold/20">
+                        <button 
+                           id="open-custom-modal"
+                           class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-z-dark bg-z-gold hover:bg-white border border-transparent hover:border-z-gold transition-all transform hover:-translate-y-1 shadow-xl shadow-z-gold/20 cursor-pointer">
                             Cuéntame tu Idea (Toma 1 minuto)
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -109,4 +108,129 @@ import { Code, Monitor, Rocket, Coffee, Brush, Zap } from 'lucide-astro';
             </div>
         </div>
     </div>
+
+    <!-- Modal Form -->
+    <div id="custom-software-modal" class="fixed inset-0 z-100 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div id="modal-overlay" class="absolute inset-0 bg-z-dark/95"></div>
+        
+        <div class="relative w-full max-w-xl bg-white rounded-3xl overflow-hidden shadow-2xl transform scale-90 transition-all duration-300 border border-slate-200" id="modal-card">
+            <div class="p-6 sm:p-10">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h3 class="text-2xl font-black text-z-dark tracking-tight">Cuentame tu Idea</h3>
+                        <p class="text-slate-500 text-sm">Resuelve tu duda en menos de 24 horas.</p>
+                    </div>
+                    <button id="close-custom-modal" class="p-2 text-slate-400 hover:text-z-dark transition-colors cursor-pointer">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                    <input type="hidden" name="access_key" value="e3ffd7ce-28bb-40ba-a80d-dddc59051a14">
+                    <input type="hidden" name="subject" value="Nueva Idea de Proyecto - Zenith Landing">
+                    <input type="hidden" name="from_name" value="Zenith Landing Page">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="space-y-1.5">
+                            <label for="name" class="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Nombre Completo</label>
+                            <input type="text" name="name" id="name" required placeholder="Ej: Juan Pérez" 
+                                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-z-blue focus:border-transparent transition-all outline-none text-slate-800">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label for="email" class="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Correo Electrónico</label>
+                            <input type="email" name="email" id="email" required placeholder="juan@correo.com" 
+                                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-z-blue focus:border-transparent transition-all outline-none text-slate-800">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between ml-1">
+                            <label for="budget" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Presupuesto Estimado</label>
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input type="checkbox" id="no-budget-check" class="w-4 h-4 rounded border-slate-300 text-z-blue focus:ring-z-blue cursor-pointer">
+                                <span class="text-[10px] font-bold text-slate-400 group-hover:text-z-blue transition-colors uppercase tracking-widest">No decidido</span>
+                            </label>
+                        </div>
+                        <input type="text" name="budget" id="budget" placeholder="Ej: $1.000 USD" 
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-z-blue focus:border-transparent transition-all outline-none text-slate-800">
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="message" class="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">¿Cuál es el mayor problema a resolver?</label>
+                        <textarea name="message" id="message" required rows="4" placeholder="Ej: Necesito un sistema para controlar el stock de 3 sucursales..." 
+                                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-z-blue focus:border-transparent transition-all outline-none text-slate-800 resize-none"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-z-dark text-white font-bold py-4 rounded-xl hover:bg-black transition-all shadow-xl shadow-z-dark/20 flex items-center justify-center gap-2 group">
+                            Enviar Propuesta
+                            <Rocket class="w-5 h-5 text-z-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </button>
+                        <p class="text-center text-[10px] text-slate-400 mt-4">Al enviar, confirmas que no eres un robot. Te responderemos vía Email.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
+
+<script>
+    const modal = document.getElementById('custom-software-modal');
+    const openBtn = document.getElementById('open-custom-modal');
+    const closeBtn = document.getElementById('close-custom-modal');
+    const overlay = document.getElementById('modal-overlay');
+    const card = document.getElementById('modal-card');
+
+    function toggleModal(show: boolean) {
+        if (!modal || !card) return;
+        
+        if (show) {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-90');
+            card.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        } else {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-90');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    openBtn?.addEventListener('click', () => toggleModal(true));
+    closeBtn?.addEventListener('click', () => toggleModal(false));
+    overlay?.addEventListener('click', (e) => {
+        if (e.target === overlay) toggleModal(false);
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('opacity-0')) {
+            toggleModal(false);
+        }
+    });
+
+    // Lógica para el checkbox de presupuesto
+    const budgetInput = document.getElementById('budget') as HTMLInputElement;
+    const noBudgetCheck = document.getElementById('no-budget-check') as HTMLInputElement;
+
+    noBudgetCheck?.addEventListener('change', (e) => {
+        const isChecked = (e.target as HTMLInputElement).checked;
+        if (budgetInput) {
+            if (isChecked) {
+                budgetInput.value = 'Aún no decidido';
+                budgetInput.readOnly = true;
+                budgetInput.classList.add('opacity-50', 'bg-slate-100', 'cursor-not-allowed');
+            } else {
+                budgetInput.value = '';
+                budgetInput.readOnly = false;
+                budgetInput.classList.remove('opacity-50', 'bg-slate-100', 'cursor-not-allowed');
+                budgetInput.focus();
+            }
+        }
+    });
+
+    // Manejo de envío (opcional - Web3Forms lo hace nativo pero aquí podemos mejorar UX)
+</script>

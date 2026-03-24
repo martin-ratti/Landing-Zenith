@@ -10,16 +10,33 @@ const base = import.meta.env.BASE_URL;
                 <div class="absolute -top-10 -left-10 w-64 h-64 bg-z-blue/10 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-z-gold/10 rounded-full blur-3xl"></div>
                 
-                <div class="relative z-10 group">
-                    <img 
-                        src={`${base}/images/LogoZenithSinFondo.png`} 
-                        alt="Zenith POS - Historia" 
-                        class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-linear-to-t from-z-dark/60 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 text-white">
-                        <p class="text-sm font-semibold uppercase tracking-widest text-z-gold mb-1">El Comienzo</p>
-                        <h3 class="text-2xl font-bold italic">"De una necesidad familiar a una solución global"</h3>
+                <div class="relative z-10 group rounded-3xl bg-z-blue/5 p-6 md:p-10 border border-z-blue/10 flex flex-col items-center">
+                    <!-- Logo Principal -->
+                    <div class="w-full transition-all duration-700 group-hover:scale-105">
+                        <img 
+                            src={`${base}/images/LogoZenithSinFondo.png`} 
+                            alt="Zenith POS - Historia" 
+                            class="w-full h-auto max-h-64 object-contain opacity-90 drop-shadow-2xl"
+                        />
+                    </div>
+                    
+                    <!-- Recuadro del Mantra (Debajo del Logo) -->
+                    <div class="w-full mt-10">
+                        <div class="bg-z-dark/95 backdrop-blur-xl p-6 md:p-8 rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden group/card">
+                            <!-- Efecto de brillo sutil -->
+                            <div class="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-2 mb-4">
+                                    <div class="w-8 h-px bg-z-gold/50"></div>
+                                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-z-gold/80">Nuestro Mantra</p>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold italic leading-tight text-white mb-2">
+                                    "Tecnología de grandes cadenas, <br class="hidden md:block" />
+                                    <span class="text-z-gold">diseñada para el mostrador de tu barrio."</span>
+                                </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,51 +52,61 @@ const base = import.meta.env.BASE_URL;
                     </p>
                 </div>
 
-                <div class="space-y-8">
+                <div class="space-y-8 relative">
+                    <!-- Conector de Línea de Tiempo -->
+                    <div class="absolute left-6 top-10 bottom-10 w-0.5 bg-z-blue/10 -translate-x-1/2"></div>
+                    
                     <!-- Point 1 -->
-                    <div class="flex gap-4 reveal-up delay-100">
-                        <div class="shrink-0 w-12 h-12 bg-z-blue/5 rounded-full flex items-center justify-center border border-z-blue/10">
+                    <div class="flex gap-4 reveal-up delay-100 relative">
+                        <div class="shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-z-blue/10 shadow-sm z-10">
                             <span class="text-z-blue font-bold">01</span>
                         </div>
                         <div>
                             <h4 class="text-xl font-bold text-z-dark mb-2">Raíces en el Comercio Real</h4>
                             <p class="text-z-dark/60">
-                                Todo comenzó en la forrajería de mi hermana. Al observar las dificultades operativas diarias, decidí aplicar mis conocimientos como estudiante de Ingeniería en Sistemas para crear una herramienta que potenciara los negocios locales y mejorara el comercio en nuestro pueblo.
+                                Todo comenzó en la forrajería de mi hermana. Al ver la frustración de usar cuadernos desordenados, perder horas anotando fiados y no saber realmente cuánta mercadería quedaba, decidí aplicar mis conocimientos para crear una herramienta que devuelva el control al comerciante.
                             </p>
                         </div>
                     </div>
 
                     <!-- Point 2 -->
-                    <div class="flex gap-4 reveal-up delay-200">
-                        <div class="shrink-0 w-12 h-12 bg-z-blue/5 rounded-full flex items-center justify-center border border-z-blue/10">
+                    <div class="flex gap-4 reveal-up delay-200 relative">
+                        <div class="shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-z-blue/10 shadow-sm z-10">
                             <span class="text-z-blue font-bold">02</span>
                         </div>
                         <div>
                             <h4 class="text-xl font-bold text-z-dark mb-2">Evolución y Robustez</h4>
                             <p class="text-z-dark/60">
-                                Lo que inició como un módulo básico se transformó en un ecosistema robusto. Hoy, Zenith controla stock, gestiona empleados, registra egresos y optimiza cada venta con precisión quirúrgica.
+                                Lo que inició como una solución local se transformó en un ecosistema robusto. Hoy, Zenith controla stock, gestiona empleados, registra egresos y optimiza las finanzas con la precisión que tu esfuerzo merece.
                             </p>
                         </div>
                     </div>
 
                     <!-- Point 3 -->
-                    <div class="flex gap-4 reveal-up delay-300">
-                        <div class="shrink-0 w-12 h-12 bg-z-blue/5 rounded-full flex items-center justify-center border border-z-blue/10">
+                    <div class="flex gap-4 reveal-up delay-300 relative">
+                        <div class="shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-z-blue/10 shadow-sm z-10">
                             <span class="text-z-blue font-bold">03</span>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-z-dark mb-2">Misión de Impulso Local</h4>
+                            <h4 class="text-xl font-bold text-z-dark mb-2">Misión de Mostrador</h4>
                             <p class="text-z-dark/60">
-                                Mi misión es empoderar a dueños de negocios con la tecnología que antes solo estaba al alcance de grandes cadenas, manteniendo la cercanía y el compromiso de un proyecto nacido del esfuerzo familiar.
+                                Mi misión es empoderar a dueños de negocios con la tecnología que antes solo estaba al alcance de grandes cadenas, manteniendo la cercanía y el compromiso de un proyecto nacido de la familia.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-12 reveal-up delay-400">
-                    <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 bg-z-blue text-white font-bold rounded-xl hover:bg-z-blue-dark transition-all shadow-xl shadow-z-blue/20 group">
-                        Solicitar una Demo
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <a 
+                        href="https://wa.me/543464441120?text=Hola%20Mart%C3%ADn,%20acabo%20de%20leer%20la%20historia%20de%20Zenith%20POS.%20Yo%20tambi%C3%A9n%20tengo%20un%20negocio%20local%20y%20me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20tu%20sistema%20me%20puede%20ayudar" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#20ba5a] transition-all shadow-xl shadow-green-500/20 group"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.896 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+                        </svg>
+                        Hablar con Martín
                     </a>
                 </div>
             </div>

@@ -2,56 +2,64 @@
 const faqs = [
   {
     question: "¿Necesito estar conectado a internet para usar Zenith POS?",
-    answer: "No. Zenith POS está construido bajo una arquitectura 'offline-first' con una base de datos SQLite embebida. Tu negocio puede seguir operando infinitamente sin conexión a red. Solo necesitarás internet si decides usar módulos opcionales de respaldo en la nube en el futuro."
+    executive: "Funciona 100% offline.",
+    answer: "Zenith POS está construido bajo una arquitectura 'offline-first' con una base de datos SQLite embebida. Tu negocio puede seguir operando infinitamente sin conexión a red. Solo necesitarás internet si decides usar módulos opcionales de respaldo en la nube en el futuro."
   },
   {
     question: "¿Es compatible con mi computadora vieja?",
-    answer: "Sí, es nuestra mayor ventaja. El sistema fue desarrollado en C# y .NET con optimizaciones extremas para correr fluidamente incluso en equipos de 32 bits con Windows XP. Si funciona allí, en Windows 10 o 11 su rendimiento es impecable."
+    executive: "Funciona perfecto en equipos antiguos.",
+    answer: "El sistema fue desarrollado en C# y .NET para correr fluidamente incluso en equipos de 32 bits con Windows XP. Si funciona allí, en Windows 10 o 11 su rendimiento es impecable."
   },
   {
     question: "¿Soporta lectores de códigos de barras y tickeadoras?",
-    answer: "Totalmente. Es compatible de forma nativa con cualquier lector USB de códigos de barras (que funcione como emulador de teclado) y soporta impresoras térmicas ESC/POS tanto vía USB como a través de red o puerto serie."
-  },
-  {
-    question: "¿Hay que pagar mantenimiento mensual?",
-    answer: "No. Al adquirir Zenith POS, obtienes una licencia vitalicia de tu sistema base. Además, el servicio técnico remoto sencillo es completamente gratuito. Solo cotizaremos visitas técnicas presenciales al local en caso de requerir asistencia física compleja."
-  },
-  {
-    question: "¿Se puede personalizar con los colores de mi empresa?",
-    answer: "¡Por supuesto! Con el pago único de tu licencia incluimos sin cargo adaptaciones estéticas menores (tus colores y logotipo). Si posteriormente deseas agregar módulos completamente nuevos o funcionalidades mayores, te lo cotizamos a medida según la dificultad y horas de desarrollo."
+    executive: "Soporta cualquier lector y tickeadora.",
+    answer: "Es compatible de forma nativa vía USB (emulador de teclado) y soporta impresoras térmicas ESC/POS tanto vía USB como a través de red o puerto serie."
   },
   {
     question: "¿Emite facturas electrónicas válidas para ARCA (ex AFIP)?",
-    answer: "No. Zenith POS es un sistema de gestión y control interno ultrarrápido. Emite tickets de venta (no válidos como factura) ideales para el control de caja de tu negocio sin depender de las caídas constantes de los servidores gubernamentales."
+    executive: "Tickets de gestión interna.",
+    answer: "Zenith POS es un sistema de control ultrarrápido enfocado en la agilidad. Emite tickets de venta (no válidos como factura) ideales para el control de caja sin depender de las caídas de los servidores gubernamentales."
   },
   {
     question: "¿Puedo controlar lo que hacen mis empleados en el sistema?",
-    answer: "Totalmente. Zenith POS incluye un módulo de gestión de usuarios con diferentes niveles de permisos. Podrás auditar quién realizó cada venta, quién abrió la caja y restringir accesos a funciones críticas para garantizar la seguridad de tu negocio."
+    executive: "Auditoría completa de empleados.",
+    answer: "Incluye gestión de usuarios con niveles de permisos. Podrás auditar quién realizó cada venta, quién abrió la caja y restringir accesos a funciones críticas para garantizar la seguridad de tu negocio."
   },
   {
     question: "¿Puedo instalarlo en múltiples cajas operando juntas?",
-    answer: "El sistema base mediante licencia única funciona con una base de datos local (SQLite) pensada para una caja principal. Si tu comercio requiere múltiples cajas en red (ej: 3 cajeros cobrando a la vez), realizamos la adaptación instalando un motor de Base de Datos Cliente-Servidor en tu local bajo presupuesto a medida."
+    executive: "Adaptable a múltiples puestos.",
+    answer: "El sistema base funciona con base local (SQLite) para una caja única. Si requieres múltiples cajas en red, realizamos la adaptación instalando un motor Cliente-Servidor en tu local bajo presupuesto a medida."
+  },
+  {
+    question: "¿Se puede personalizar con los colores de mi empresa?",
+    executive: "Diseños y logos personalizados.",
+    answer: "Con el pago único de tu licencia incluimos sin cargo adaptaciones estéticas menores (tus colores y logotipo). Si posteriormente deseas agregar módulos nuevos, te lo cotizamos a medida según la dificultad."
+  },
+  {
+    question: "¿Hay que pagar mantenimiento mensual?",
+    executive: "Cero cuotas mensuales.",
+    answer: "Al adquirir Zenith POS, obtienes una licencia vitalicia de tu sistema base con soporte básico remoto sin cargo. Solo cotizaremos visitas técnicas presenciales al local en caso de requerir asistencia física compleja."
   }
 ];
 ---
 <section class="py-24 bg-z-light border-t border-z-dark/5">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal-up">
             <h2 class="text-3xl font-extrabold text-z-dark sm:text-4xl">Preguntas Frecuentes</h2>
             <p class="mt-4 text-lg text-z-blue-dark/80">Todo lo que necesitas saber sobre la implementación operativa.</p>
         </div>
         
-        <div class="space-y-4 reveal-up delay-100">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 reveal-up delay-100 items-start">
             {faqs.map((faq, index) => (
-                <details class="group bg-white border border-z-blue-dark/10 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                    <summary class="flex items-center justify-between cursor-pointer p-6 bg-white hover:bg-slate-50 focus:outline-none focus-visible:bg-slate-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-z-blue/50 transition-colors">
-                        <h3 class="font-bold text-z-dark pr-4 select-none">{faq.question}</h3>
-                        <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-z-blue">
+                <details class="group bg-white border border-z-blue-dark/10 open:border-z-blue rounded-xl overflow-hidden open:shadow-lg transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 bg-white hover:bg-slate-50 focus:outline-none focus-visible:bg-slate-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-z-blue/50 transition-all duration-300">
+                        <h3 class="font-bold text-z-dark pr-4 select-none group-open:text-z-blue transition-colors">{faq.question}</h3>
+                        <span class="transition-transform duration-300 group-open:rotate-180 shrink-0 text-z-blue">
                             <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </summary>
-                    <div class="p-6 pt-0 text-slate-600 leading-relaxed bg-white">
-                        <p>{faq.answer}</p>
+                    <div class="p-6 pt-0 text-slate-600 leading-relaxed group-open:bg-slate-50/50 transition-colors duration-300">
+                        <p><strong class="text-z-dark">{faq.executive}</strong> {faq.answer}</p>
                     </div>
                 </details>
             ))}

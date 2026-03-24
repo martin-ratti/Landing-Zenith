@@ -1,0 +1,88 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<section id="nosotros" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            
+            <!-- Visionary Image Container -->
+            <div class="relative reveal-up">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-z-blue/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-z-gold/10 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10 group">
+                    <img 
+                        src={`${base}/images/LogoZenithSinFondo.png`} 
+                        alt="Zenith POS - Historia" 
+                        class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-linear-to-t from-z-dark/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <p class="text-sm font-semibold uppercase tracking-widest text-z-gold mb-1">El Comienzo</p>
+                        <h3 class="text-2xl font-bold italic">"De una necesidad familiar a una solución global"</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="mt-16 lg:mt-0">
+                <div class="reveal-up">
+                    <h2 class="text-4xl font-extrabold text-z-dark tracking-tight sm:text-5xl mb-6">
+                        Nuestra <span class="text-transparent bg-clip-text bg-linear-to-r from-z-blue to-z-blue-dark">Historia</span>
+                    </h2>
+                    <p class="text-lg text-z-dark/70 leading-relaxed mb-8">
+                        Zenith POS no nació como un producto de software genérico, sino como una respuesta apasionada para transformar un negocio familiar.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Point 1 -->
+                    <div class="flex gap-4 reveal-up delay-100">
+                        <div class="shrink-0 w-12 h-12 bg-z-blue/5 rounded-full flex items-center justify-center border border-z-blue/10">
+                            <span class="text-z-blue font-bold">01</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-z-dark mb-2">Raíces en el Comercio Real</h4>
+                            <p class="text-z-dark/60">
+                                Todo comenzó en la forrajería de mi hermana. Al observar las dificultades operativas diarias, decidí aplicar mis conocimientos como estudiante de Ingeniería en Sistemas para crear una herramienta que potenciara los negocios locales y mejorara el comercio en nuestro pueblo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="flex gap-4 reveal-up delay-200">
+                        <div class="shrink-0 w-12 h-12 bg-z-blue/5 rounded-full flex items-center justify-center border border-z-blue/10">
+                            <span class="text-z-blue font-bold">02</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-z-dark mb-2">Evolución y Robustez</h4>
+                            <p class="text-z-dark/60">
+                                Lo que inició como un módulo básico se transformó en un ecosistema robusto. Hoy, Zenith controla stock, gestiona empleados, registra egresos y optimiza cada venta con precisión quirúrgica.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="flex gap-4 reveal-up delay-300">
+                        <div class="shrink-0 w-12 h-12 bg-z-blue/5 rounded-full flex items-center justify-center border border-z-blue/10">
+                            <span class="text-z-blue font-bold">03</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-z-dark mb-2">Misión de Impulso Local</h4>
+                            <p class="text-z-dark/60">
+                                Mi misión es empoderar a dueños de negocios con la tecnología que antes solo estaba al alcance de grandes cadenas, manteniendo la cercanía y el compromiso de un proyecto nacido del esfuerzo familiar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 reveal-up delay-400">
+                    <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 bg-z-blue text-white font-bold rounded-xl hover:bg-z-blue-dark transition-all shadow-xl shadow-z-blue/20 group">
+                        Solicitar una Demo
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

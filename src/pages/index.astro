@@ -7,18 +7,20 @@ import AppGallery from '../components/AppGallery.astro';
 import PricingSection from '../components/PricingSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CustomSoftwareSection from '../components/CustomSoftwareSection.astro';
+import AboutSection from '../components/AboutSection.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout title="Zenith POS | Sistema de Punto de Venta">
 	<Navbar />
-	<main class="flex-grow">
+	<main class="grow">
 		<HeroSection />
 		<FeaturesSection />
 		<AppGallery />
 		<PricingSection />
 		<FAQSection />
 		<CustomSoftwareSection />
+		<AboutSection />
 	</main>
 	<Footer />
 </BaseLayout>

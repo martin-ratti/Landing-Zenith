@@ -29,7 +29,7 @@ const features = [
                             <!-- Imagen simulando la App (Reemplazar src por el GIF real) -->
                             <img src={`https://placehold.co/800x600/143D73/FFFFFF?text=${encodeURIComponent(feature.title)}`} alt={`Demostración de ${feature.title}`} class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out" loading="lazy" />
                             <!-- Overlay oscuro para asegurar que el texto sea siempre legible -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-z-dark via-z-dark/80 to-z-dark/20"></div>
+                            <div class="absolute inset-0 bg-linear-to-t from-z-dark via-z-dark/80 to-z-dark/20"></div>
                         </div>
 
                         <!-- SVG Icon Container (Desaparece en hover) -->
@@ -38,7 +38,7 @@ const features = [
                         </div>
                         
                         <!-- Content -->
-                        <div class="relative z-10 flex flex-col flex-grow mt-auto justify-end">
+                        <div class="relative z-10 flex flex-col grow mt-auto justify-end">
                             <h3 class="text-xl font-bold text-z-dark mb-3 group-hover:text-white transition-colors duration-500 transform group-hover:-translate-y-2">{feature.title}</h3>
                             <p class="text-z-blue-dark/80 leading-relaxed group-hover:text-z-light/90 transition-colors duration-500 transform group-hover:-translate-y-2">{feature.description}</p>
                         </div>

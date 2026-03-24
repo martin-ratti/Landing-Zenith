@@ -1,7 +1,7 @@
 ---
-import { Code, MonitorSmartphone, Rocket } from 'lucide-astro';
+import { Code, Monitor, Rocket, Coffee, Brush, Zap } from 'lucide-astro';
 ---
-<section class="py-24 bg-white relative overflow-hidden">
+<section class="py-24 bg-white relative overflow-hidden" id="custom-software">
     <!-- Decorative background element -->
     <div class="absolute inset-0 z-0">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-full max-h-lg bg-z-blue/5 rounded-full blur-3xl"></div>
@@ -10,10 +10,15 @@ import { Code, MonitorSmartphone, Rocket } from 'lucide-astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="bg-linear-to-br from-z-dark to-z-blue-dark rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden relative reveal-up">
             
+            <!-- Blueprint Pattern Overlay -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none" 
+                 style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;">
+            </div>
+
             <!-- Subtle gold highlight in corner -->
             <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-z-gold/20 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
                 
                 <div class="lg:w-1/2 text-left">
                     <div class="inline-flex items-center px-3 py-1 rounded-full bg-z-blue/30 border border-z-blue text-z-light text-xs font-bold uppercase tracking-wider mb-6">
@@ -25,29 +30,79 @@ import { Code, MonitorSmartphone, Rocket } from 'lucide-astro';
                     <p class="text-lg text-z-light/80 mb-8 max-w-xl">
                         ¿Zenith POS no es exactamente lo que buscas? Desarrollamos aplicaciones personalizadas a la medida exacta de tu modelo de negocio. Tú pones la idea, nosotros la convertimos en código.
                     </p>
+
+                    <!-- Anti-Stress Process in 3 Steps -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 pt-6 border-t border-white/10">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-z-blue/20 p-2 rounded-lg text-z-blue-light">
+                                    <Coffee class="w-5 h-5 text-z-gold" />
+                                </div>
+                                <h4 class="text-white font-bold text-sm">1. Charla Exploratoria</h4>
+                            </div>
+                            <p class="text-z-light/60 text-xs">Sin compromiso ni jerga técnica. Vemos si podemos ayudarte.</p>
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-z-blue/20 p-2 rounded-lg text-z-blue-light">
+                                    <Brush class="w-5 h-5 text-z-gold" />
+                                </div>
+                                <h4 class="text-white font-bold text-sm">2. Prototipo Visual</h4>
+                            </div>
+                            <p class="text-z-light/60 text-xs">Verás pantallas de cómo quedará tu sistema. Sin sorpresas.</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-z-blue/20 p-2 rounded-lg text-z-blue-light">
+                                    <Zap class="w-5 h-5 text-z-gold" />
+                                </div>
+                                <h4 class="text-white font-bold text-sm">3. Desarrollo Ágil</h4>
+                            </div>
+                            <p class="text-z-light/60 text-xs">Tu idea convertida en software real con entregas progresivas.</p>
+                        </div>
+                    </div>
                     
-                    <a href="https://wa.me/5493464441120?text=Hola,%20me%20gustaría%20cotizar%20un%20proyecto%20de%20software%20a%20medida." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-z-dark bg-z-gold hover:bg-white border border-transparent hover:border-z-gold transition-all transform hover:-translate-y-1 shadow-xl shadow-z-gold/20">
-                        Hablemos de tu Proyecto
-                    </a>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5493464441120?text=Hola,%20me%20gustaría%20completar%20la%20solicitud%20para%20un%20proyecto%20de%20software%20a%20medida." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-z-dark bg-z-gold hover:bg-white border border-transparent hover:border-z-gold transition-all transform hover:-translate-y-1 shadow-xl shadow-z-gold/20">
+                            Cuéntame tu Idea (Toma 1 minuto)
+                        </a>
+                    </div>
                 </div>
 
                 <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-out h-full flex flex-col">
-                        <Code class="w-10 h-10 text-z-blue mb-4" />
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-out h-full flex flex-col group relative overflow-hidden">
+                        <!-- Card Blueprint effect -->
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"
+                             style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        
+                        <Code class="w-10 h-10 text-z-blue mb-4 group-hover:scale-110 transition-transform duration-500" />
                         <h3 class="text-xl font-bold text-white mb-2">Sistemas Web</h3>
-                        <p class="text-z-light/70 text-sm grow">Plataformas, portales, e-commerce y sistemas de gestión cloud modernos.</p>
+                        <p class="text-z-light/70 text-sm grow">Soluciones en la nube. Ideal si necesitas que tus clientes o empleados accedan al sistema desde cualquier celular o computadora en el mundo.</p>
                     </div>
                     
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-out h-full flex flex-col">
-                        <MonitorSmartphone class="w-10 h-10 text-z-blue mb-4" />
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-out h-full flex flex-col group relative overflow-hidden">
+                        <!-- Card Blueprint effect -->
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"
+                             style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                        <Monitor class="w-10 h-10 text-z-blue mb-4 group-hover:scale-110 transition-transform duration-500" />
                         <h3 class="text-xl font-bold text-white mb-2">Apps de Escritorio</h3>
-                        <p class="text-z-light/70 text-sm grow">Software local puro (C#, .NET) para operaciones críticas y conexión nativa con periféricos.</p>
+                        <p class="text-z-light/70 text-sm grow">Sistemas blindados y ultra rápidos. La opción perfecta si tu local tiene internet inestable y necesitas conectar balanzas, tickeadoras o hardware pesado.</p>
                     </div>
 
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-out sm:col-span-2 h-full flex flex-col">
-                        <Rocket class="w-10 h-10 text-z-gold mb-4" />
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-out sm:col-span-2 h-full flex flex-col group relative overflow-hidden">
+                         <!-- Card Blueprint effect -->
+                         <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"
+                             style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                        <Rocket class="w-10 h-10 text-z-gold mb-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                         <h3 class="text-xl font-bold text-white mb-2">Soluciones Personalizadas</h3>
-                        <p class="text-z-light/70 text-sm grow">Desde la base de datos hasta la interfaz visual. Analizamos, diseñamos y desarrollamos el producto tecnológico que tu empresa necesita para diferenciarse operativa y comercialmente.</p>
+                        <p class="text-z-light/70 text-sm grow">Si tu idea no encaja en un software enlatado. Analizamos tu proceso manual más lento y lo automatizamos por completo para ahorrarte horas de trabajo administrativo.</p>
                     </div>
                 </div>
 

@@ -1,0 +1,212 @@
+---
+import { Info, Keyboard, Zap, ShieldAlert, MousePointer2, Smartphone } from 'lucide-astro';
+
+const base = import.meta.env.BASE_URL;
+
+const hotspots = [
+    {
+        id: "scanner",
+        x: "9.5%",
+        y: "22.5%",
+        icon: Zap,
+        color: "rgb(20, 61, 115)", // z-blue
+        title: "Velocidad Extrema",
+        description: "Conecta cualquier lector de código de barras USB. Los productos se agregan al instante sin tocar el mouse.",
+        position: "left-start"
+    },
+    {
+        id: "stock",
+        x: "40%",
+        y: "10.5%",
+        icon: ShieldAlert,
+        color: "rgb(239, 68, 68)", // red-500
+        title: "Vigilancia en Tiempo Real",
+        description: "El sistema audita tu inventario mientras cobras y te avisa qué mercadería está por agotarse.",
+        position: "top"
+    },
+    {
+        id: "vuelto",
+        x: "26%",
+        y: "89.5%",
+        icon: Info,
+        color: "rgb(191, 121, 59)", // z-gold
+        title: "Cero Errores",
+        description: "Ingresa el pago y el sistema indica el vuelto exacto. Cierra la venta con seguridad total.",
+        position: "bottom"
+    },
+    {
+        id: "cierre",
+        x: "93%",
+        y: "88%",
+        icon: Keyboard,
+        color: "rgb(22, 163, 74)", // green-600
+        title: "Flujo 100% Teclado",
+        description: "Asigna el pago y cierra la venta en milisegundos usando solo las teclas de función [F1-F12].",
+        position: "right-end"
+    }
+];
+---
+
+<section id="galeria" class="py-24 bg-white overflow-hidden relative border-b border-z-blue-dark/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16 reveal-up">
+            <span class="inline-block px-4 py-1 bg-z-gold/5 text-z-gold rounded-full text-[10px] font-black tracking-widest uppercase mb-4 border border-z-gold/10">
+                Centro de Mando
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black text-z-dark mb-4 tracking-tight leading-tight">
+                VELOCIDAD SIN <span class="bg-clip-text text-transparent bg-linear-to-r from-z-gold to-amber-600">DISTRECCIONES</span>
+            </h2>
+            <p class="text-slate-500 max-w-2xl mx-auto font-medium">
+                Una interfaz limpia donde el mouse no es bienvenido. Diseñado para cajeros que valoran cada milisegundo de su turno.
+            </p>
+        </div>
+
+        <!-- Showcase -->
+        <div class="max-w-5xl mx-auto reveal-up delay-200">
+            <div class="relative group/interface">
+                <!-- Marco de la Interface -->
+                <div class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-z-dark/20 border border-slate-200">
+                    <img 
+                        src={`${base}/pos-interface.png`} 
+                        alt="Zenith POS Interface" 
+                        class="w-full h-auto"
+                    />
+
+                    <!-- Hotspots Layer -->
+                    <div class="absolute inset-0">
+                        {hotspots.map((h) => {
+                            const Icon = h.icon;
+                            return (
+                                <div 
+                                    class="hotspot-group absolute" 
+                                    style={`top: ${h.y}; left: ${h.x};`}
+                                    data-id={h.id}
+                                >
+                                    <!-- Punto Pulsante (Más chico) -->
+                                    <div class="relative flex items-center justify-center cursor-pointer hotspot-trigger">
+                                        <div class="absolute w-6 h-6 rounded-full bg-white opacity-40 animate-ping"></div>
+                                        <div class="relative z-10 w-4 h-4 rounded-full border-2 border-white shadow-lg ring-2 ring-transparent transition-all duration-300" style={`background-color: ${h.color};`}></div>
+                                    </div>
+
+                                    <!-- Línea Conectora (Sutil) -->
+                                    <div class="hotspot-line absolute hidden md:block"></div>
+
+                                    <!-- Card de Info -->
+                                    <div class="hotspot-card absolute opacity-0 pointer-events-none transition-all duration-300 transform scale-95 z-50">
+                                        <div class="bg-z-dark/95 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-2xl w-56 md:w-64">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <Icon class="w-4 h-4 text-z-gold" />
+                                                <h4 class="text-white font-bold text-sm tracking-tight">{h.title}</h4>
+                                            </div>
+                                            <p class="text-zinc-400 text-xs leading-relaxed">{h.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Hotspot Grouping */
+    .hotspot-group {
+        transform: translate(-50%, -50%);
+    }
+
+    /* Líneas Dinámicas */
+    .hotspot-line {
+        height: 1px;
+        background: linear-gradient(to right, white, transparent);
+        width: 40px;
+        opacity: 0.3;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        transition: all 0.5s ease;
+    }
+
+    /* Posicionamiento de Cards según la propiedad h.position */
+    [data-id="scanner"] .hotspot-card { top: -20px; left: 60px; }
+    [data-id="scanner"] .hotspot-line { rotate: 0deg; left: 20px; width: 40px; }
+
+    [data-id="stock"] .hotspot-card { top: 60px; left: 0; transform: translateX(-50%) scale(0.95); }
+    [data-id="stock"] .hotspot-line { rotate: 90deg; left: 50%; top: 20px; width: 40px; }
+
+    [data-id="vuelto"] .hotspot-card { bottom: 60px; left: 0; transform: translateX(-50%) scale(0.95); }
+    [data-id="vuelto"] .hotspot-line { rotate: -90deg; left: 50%; bottom: 20px; width: 40px; }
+
+    [data-id="cierre"] .hotspot-card { bottom: -20px; right: 60px; }
+    [data-id="cierre"] .hotspot-line { rotate: 180deg; right: 20px; left: auto; width: 40px; }
+
+    /* Hover States */
+    .hotspot-group:hover .hotspot-card {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(0, 0) scale(1);
+        z-index: 100 !important;
+    }
+    
+    [data-id="stock"]:hover .hotspot-card, 
+    [data-id="vuelto"]:hover .hotspot-card {
+        transform: translateX(-50%) scale(1);
+    }
+
+    .hotspot-group:hover .hotspot-line {
+        opacity: 0.8;
+        width: 50px;
+        background-color: var(--color-z-gold);
+    }
+
+    .hotspot-group:hover .hotspot-trigger div {
+        transform: scale(1.2);
+    }
+
+    /* Mobile specific behavior */
+    @media (max-width: 768px) {
+        .hotspot-card {
+            position: fixed !important;
+            top: auto !important;
+            bottom: 2rem !important;
+            left: 1rem !important;
+            right: 1rem !important;
+            width: auto !important;
+            transform: translateY(20px) !important;
+        }
+
+        .hotspot-group.active .hotspot-card {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    }
+</style>
+
+<script>
+    function setupInteractive() {
+        const groups = document.querySelectorAll('.hotspot-group');
+        
+        groups.forEach(group => {
+            const trigger = group.querySelector('.hotspot-trigger');
+            
+            trigger?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Cerrar otros
+                groups.forEach(g => {
+                    if (g !== group) g.classList.remove('active');
+                });
+                group.classList.toggle('active');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            groups.forEach(g => g.classList.remove('active'));
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupInteractive);
+    setupInteractive();
+</script>

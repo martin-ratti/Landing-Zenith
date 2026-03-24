@@ -84,15 +84,16 @@ const base = import.meta.env.BASE_URL;
 </style>
 
 <!-- Sticky CTA Bar -->
-<div id="sticky-cta" class="fixed top-20 left-0 w-full z-40 bg-z-blue shadow-lg border-b border-z-blue-dark transition-all duration-500 ease-in-out transform -translate-y-full opacity-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-white">
-        <span class="font-medium text-xs sm:text-base pr-4">Libérate de las suscripciones mensuales</span>
+<div id="sticky-cta" class="fixed top-20 left-0 w-full z-40 bg-z-blue shadow-lg border-b border-z-blue-dark transition-all duration-500 ease-in-out transform -translate-y-full opacity-0 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between text-white gap-2">
+        <span class="font-bold text-[10px] xs:text-xs sm:text-base leading-tight">Libérate de las suscripciones mensuales</span>
         <a href="https://wa.me/5493464441120?text=Hola%20Martín,%20vengo%20del%20botón%20superior%20de%20la%20página.%20Me%20interesa%20consultar%20por%20la%20licencia%20de%20pago%20único." 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="flex items-center gap-2 px-3 py-1.5 sm:px-5 sm:py-2 bg-white text-z-blue text-xs sm:text-sm font-bold rounded-lg hover:bg-z-light transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0">
-            <MessageCircle class="w-4 h-4 text-[#25D366] fill-current" />
-            Hablar con el Creador
+           class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-5 sm:py-2 bg-white text-z-blue text-[10px] xs:text-xs sm:text-sm font-black rounded-lg hover:bg-z-light transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0 whitespace-nowrap uppercase tracking-tighter sm:tracking-normal">
+            <MessageCircle class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#25D366] fill-current" />
+            <span class="hidden xxs:inline">Hablar con el Creador</span>
+            <span class="xxs:hidden">Consultar</span>
         </a>
     </div>
 </div>

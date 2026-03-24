@@ -1,5 +1,5 @@
 ---
-import { Info, Keyboard, Zap, ShieldAlert, MousePointer2, Smartphone } from 'lucide-astro';
+import { Info, Keyboard, Zap, ShieldAlert, MousePointer2, Smartphone, X } from 'lucide-astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -82,19 +82,22 @@ const hotspots = [
                                     class="hotspot-group absolute" 
                                     style={`top: ${h.y}; left: ${h.x};`}
                                     data-id={h.id}
+                                    data-title={h.title}
+                                    data-description={h.description}
+                                    data-color={h.color}
                                 >
-                                    <!-- Punto Pulsante (Más chico) -->
+                                    <!-- Punto Pulsante -->
                                     <div class="relative flex items-center justify-center cursor-pointer hotspot-trigger">
                                         <div class="absolute w-6 h-6 rounded-full bg-white opacity-40 animate-ping"></div>
                                         <div class="relative z-10 w-4 h-4 rounded-full border-2 border-white shadow-lg ring-2 ring-transparent transition-all duration-300" style={`background-color: ${h.color};`}></div>
                                     </div>
 
-                                    <!-- Línea Conectora (Sutil) -->
+                                    <!-- Línea Conectora (PC) -->
                                     <div class="hotspot-line absolute hidden md:block"></div>
 
-                                    <!-- Card de Info -->
-                                    <div class="hotspot-card absolute opacity-0 pointer-events-none transition-all duration-300 transform scale-95 z-50">
-                                        <div class="bg-z-dark/95 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-2xl w-56 md:w-64">
+                                    <!-- Card de Info (PC) -->
+                                    <div class="hotspot-card absolute opacity-0 pointer-events-none transition-all duration-300 transform scale-95 z-50 hidden md:block">
+                                        <div class="bg-z-dark/95 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-2xl w-64">
                                             <div class="flex items-center gap-2 mb-2">
                                                 <Icon class="w-4 h-4 text-z-gold" />
                                                 <h4 class="text-white font-bold text-sm tracking-tight">{h.title}</h4>
@@ -107,6 +110,29 @@ const hotspots = [
                         })}
                     </div>
                 </div>
+                <!-- Mobile Modal (Unified) -->
+                <div id="hotspot-mobile-modal" class="md:hidden fixed inset-x-4 top-1/2 -translate-y-1/2 z-[100] opacity-0 pointer-events-none transition-all duration-500 transform scale-95">
+                    <div class="bg-z-dark/95 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.6)] relative overflow-hidden">
+                        <!-- Color Accent Bar -->
+                        <div id="modal-accent-bar" class="absolute top-0 left-0 w-full h-1.5 shadow-sm"></div>
+                        
+                        <!-- Close X -->
+                        <button id="close-modal-btn" class="absolute top-4 right-4 w-10 h-10 bg-white/5 text-white rounded-full flex items-center justify-center active:bg-white/10 transition-colors">
+                            <X class="w-6 h-6" />
+                        </button>
+
+                        <div class="pt-2">
+                            <h4 id="modal-title" class="text-white font-black text-xl tracking-tight mb-4 flex items-center gap-3">
+                                <Zap class="w-6 h-6 text-z-gold" />
+                                <span>Título</span>
+                            </h4>
+                            <p id="modal-description" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Overlay -->
+                <div class="hotspot-overlay md:hidden"></div>
             </div>
         </div>
 
@@ -174,47 +200,91 @@ const hotspots = [
         transform: scale(1.2);
     }
 
-    /* Mobile specific behavior */
-    @media (max-width: 768px) {
-        .hotspot-card {
-            position: fixed !important;
-            top: auto !important;
-            bottom: 2rem !important;
-            left: 1rem !important;
-            right: 1rem !important;
-            width: auto !important;
-            transform: translateY(20px) !important;
-        }
+    /* Mobile Info Modal Support */
+    #hotspot-mobile-modal.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(0, -50%) scale(1);
+    }
 
-        .hotspot-group.active .hotspot-card {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
+    /* Overlay */
+    .hotspot-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(1, 6, 38, 0.85); /* z-dark color matched */
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 90;
+    }
+
+    .hotspot-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
     }
 </style>
 
 <script>
     function setupInteractive() {
         const groups = document.querySelectorAll('.hotspot-group');
+        const overlay = document.querySelector('.hotspot-overlay');
+        const mobileModal = document.getElementById('hotspot-mobile-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-description');
+        const modalAccent = document.getElementById('modal-accent-bar');
+        const closeBtn = document.getElementById('close-modal-btn');
         
+        const closeMobileModal = () => {
+            mobileModal?.classList.remove('active');
+            overlay?.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
         groups.forEach(group => {
             const trigger = group.querySelector('.hotspot-trigger');
             
             trigger?.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Cerrar otros
-                groups.forEach(g => {
-                    if (g !== group) g.classList.remove('active');
-                });
-                group.classList.toggle('active');
+                
+                if (window.innerWidth <= 768) {
+                    // Mobile Behavior: Global Modal
+                    const title = group.getAttribute('data-title');
+                    const desc = group.getAttribute('data-description');
+                    const color = group.getAttribute('data-color');
+                    
+                    if (modalTitle && modalDesc && modalAccent && mobileModal) {
+                        modalTitle.querySelector('span')!.textContent = title || '';
+                        modalDesc.textContent = desc || '';
+                        modalAccent.style.backgroundColor = color || '';
+                        
+                        mobileModal.classList.add('active');
+                        overlay?.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                } else {
+                    // Desktop Behavior: Tooltips
+                    groups.forEach(g => {
+                        if (g !== group) g.classList.remove('active');
+                    });
+                    group.classList.toggle('active');
+                }
             });
         });
 
-        document.addEventListener('click', () => {
-            groups.forEach(g => g.classList.remove('active'));
+        // Close Events
+        closeBtn?.addEventListener('click', closeMobileModal);
+        overlay?.addEventListener('click', closeMobileModal);
+        
+        document.addEventListener('click', (e) => {
+            if (!(e.target as HTMLElement).closest('.hotspot-group') && !(e.target as HTMLElement).closest('#hotspot-mobile-modal')) {
+                groups.forEach(g => g.classList.remove('active'));
+                closeMobileModal();
+            }
         });
     }
 
     document.addEventListener('DOMContentLoaded', setupInteractive);
     setupInteractive();
 </script>
+```

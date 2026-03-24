@@ -32,6 +32,9 @@
   --color-z-blue: var(--color-primary);
   --color-z-gold: var(--color-secondary);
   --color-z-light: var(--color-light);
+
+  --breakpoint-xs: 480px;
+  --breakpoint-xxs: 360px;
 }
 
 @layer utilities {

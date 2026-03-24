@@ -93,7 +93,7 @@ const features = [
             <p class="mt-4 text-lg text-z-blue-dark max-w-2xl mx-auto">No permitas que un corte de internet o un servidor lento detenga tus ventas. Todo lo que necesitas para operar de forma segura, integrado en un ecosistema local.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => {
                 const Icon = feature.icon;
                 const delayClass = `delay-${((index % 3) + 1) * 100}`;

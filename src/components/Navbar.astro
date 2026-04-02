@@ -25,12 +25,12 @@ const base = import.meta.env.BASE_URL;
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-z-light hover:text-white focus:outline-none p-2 relative z-50" aria-label="Abrir menú">
+                <button id="mobile-menu-button" class="text-z-light hover:text-white focus:outline-none p-2 relative z-50" aria-label="Abrir menú" aria-expanded="false">
                     <div id="menu-icon" class="block transition-all duration-300">
-                        <Menu class="w-8 h-8" />
+                        <Menu class="w-8 h-8" aria-hidden="true" />
                     </div>
                     <div id="close-icon" class="hidden transition-all duration-300">
-                        <X class="w-8 h-8" />
+                        <X class="w-8 h-8" aria-hidden="true" />
                     </div>
                 </button>
             </div>
@@ -120,6 +120,8 @@ const base = import.meta.env.BASE_URL;
                 menuIcon?.classList.add('block');
                 closeIcon?.classList.add('hidden');
                 closeIcon?.classList.remove('block');
+                mobileMenuButton?.setAttribute('aria-expanded', 'false');
+                mobileMenuButton?.setAttribute('aria-label', 'Abrir menú');
             } else {
                 mobileMenu?.classList.remove('hidden');
                 mobileMenu?.classList.add('active');
@@ -127,6 +129,8 @@ const base = import.meta.env.BASE_URL;
                 menuIcon?.classList.remove('block');
                 closeIcon?.classList.remove('hidden');
                 closeIcon?.classList.add('block');
+                mobileMenuButton?.setAttribute('aria-expanded', 'true');
+                mobileMenuButton?.setAttribute('aria-label', 'Cerrar menú');
             }
         };
 
